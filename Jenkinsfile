@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Maven Build") {
             agent {
-                docker { image 'maven:3.6.3-jdk-11' }
+                docker { image 'maven:3.6.3-jdk-8' }
             }
             steps {
                 sh "mvn clean install"
