@@ -1,22 +1,22 @@
 pipeline {
     agent any
     stages {
-//         stage("Maven Build") {
-//             agent {
-//                 docker { image 'maven:3.6.3-jdk-11' }
-//             }
-//             steps {
-//                 sh "mvn clean install"
-//             }
-//         }
-//         stage("Maven Test") {
-//             agent {
-//                 docker { image 'maven:3.6.3-jdk-8' }
-//             }
-//             steps {
-//                 sh "mvn test"
-//             }
-//         }
+        stage("Maven Build") {
+            agent {
+                docker { image 'maven:3.6.3-jdk-11' }
+            }
+            steps {
+                sh "mvn clean install"
+            }
+        }
+        stage("Maven Test") {
+            agent {
+                docker { image 'maven:3.6.3-jdk-8' }
+            }
+            steps {
+                sh "mvn test"
+            }
+        }
         // stage("Docker Check"){
         //     agent any
         //     steps{
