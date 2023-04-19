@@ -17,7 +17,7 @@ pipeline {
     stage("Dockerize") {
       steps {
         script {
-          docker.withRegistry("https://${DOCKER_REGISTRY}", "docker.io") {
+          docker.withRegistry("https://${DOCKER_REGISTRY}", "docker-hub") {
             def dockerImage = docker.build(DOCKER_IMAGE, ".")
             dockerImage.push()
           }
@@ -28,7 +28,7 @@ pipeline {
   post {
     always {
       script {
-        docker.withRegistry("https://${DOCKER_REGISTRY}", "docker.io") {
+        docker.withRegistry("https://${DOCKER_REGISTRY}", "docker-hub") {
           docker.image(DOCKER_IMAGE).push()
         }
       }
