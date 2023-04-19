@@ -7,7 +7,7 @@ pipeline {
     DOCKER_IMAGE = "${DOCKER_REPO}:${BUILD_NUMBER}"
     DOCKER_USERNAME = "pradeepvenk99"
     DOCKER_PASSWORD = "Venabi68\\*"
-    DOCKER_CREDENTIAL_ID = "my-docker-credential" // replace with your credential ID
+    DOCKER_CREDENTIAL_ID = "docker-hub" // replace with your credential ID
   }
   stages {
     stage("Build") {
