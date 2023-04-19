@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
     APP_NAME = "demo"
-    DOCKER_REGISTRY = "docker.io"
+    DOCKER_REGISTRY = "docker-hub"
     DOCKER_REPO = "pradeepvenk99/pipeline-demo"
     DOCKER_IMAGE = "${DOCKER_REPO}:${BUILD_NUMBER}"
     DOCKER_USERNAME = "pradeepvenk99"
@@ -17,7 +17,7 @@ pipeline {
     stage("Dockerize") {
       steps {
         script {
-          docker.withRegistry("https://${DOCKER_REGISTRY}", "docker.io") {
+          docker.withRegistry("https://${DOCKER_REGISTRY}", "docker-hub") {
             def dockerImage = docker.build(DOCKER_IMAGE, ".")
             dockerImage.push()
           }
