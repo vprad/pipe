@@ -17,7 +17,7 @@ pipeline {
         stage('Dockerize') {
             steps {
                 script {
-                    withDockerRegistry([credentialsId: '5358b1bf-cb27-4a80-abaa-8e8b42b43db8', url: 'https://hub.docker.com']) {
+                    withDockerRegistry([credentialsId: '5358b1bf-cb27-4a80-abaa-8e8b42b43db8', url: 'https://index.docker.io/v1/']) {
                         sh 'docker login -u pradeepvenk99 -p $DOCKER_HUB_PASSWORD https://docker.io'
                         sh 'docker tag my-app:latest pradeepvenk99/pipeline-demo:35'
                         sh 'docker push pradeepvenk99/pipeline-demo:35'
