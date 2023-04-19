@@ -15,15 +15,16 @@ pipeline {
             }
         }
         stage('Dockerize') {
-            steps {
-                script {
-                    docker.withRegistry('https://docker.io', '5358b1bf-cb27-4a80-abaa-8e8b42b43db8') {
-                        def customImage = docker.build('my-app:latest', '.')
-                        customImage.push('pradeepvenk99/my-app:latest')
-                    }
-                }
+        steps {
+        script {
+            docker.withRegistry('https://docker.io', '5358b1bf-cb27-4a80-abaa-8e8b42b43db8') {
+                def customImage = docker.build("pradeepvenk99/my-app:latest", ".")
+                customImage.push()
             }
         }
+    }
+}
+
     }
     post {
         always {
