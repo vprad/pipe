@@ -7,7 +7,7 @@ pipeline {
     DOCKER_IMAGE = "${DOCKER_REPO}:${BUILD_NUMBER}"
     DOCKER_USERNAME = "pradeepvenk99"
     DOCKER_PASSWORD = "Venabi68\\*"
-    DOCKER_CREDENTIAL_ID = "abb83435-af98-4f7e-8b97-5d408f90c365" // replace with your credential ID
+    DOCKER_CREDENTIAL_ID = "5358b1bf-cb27-4a80-abaa-8e8b42b43db8" // replace with your credential ID
   }
   stages {
     stage("Build") {
