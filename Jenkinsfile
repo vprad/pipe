@@ -15,6 +15,12 @@ pipeline {
         sh "mvn clean package"
       }
     }
+    stage('Login to Docker Hub') {      	
+    steps{                       	
+	  sh 'echo $DOCKER_PASSWORD | sudo docker login -u $DOCKER_USERNAME --password-stdin'                		
+	  echo 'Login Completed'      
+    }           
+ } 
     stage("Dockerize") {
       steps {
         script {
