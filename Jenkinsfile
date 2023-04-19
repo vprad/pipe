@@ -28,7 +28,7 @@ pipeline {
   post {
     always {
       script {
-        docker.withRegistry("https://${DOCKER_REGISTRY}", "docker.io") {
+        docker.withRegistry("https://${DOCKER_REGISTRY}", "docker-hub") {
           docker.image(DOCKER_IMAGE).push()
         }
       }
