@@ -1,6 +1,14 @@
-FROM ubuntu:20.04
+# Use an official Java runtime as a parent image
+FROM openjdk:11-jre-slim
 
-RUN apt update && apt install -y sbcl
+# Set the working directory to /app
+WORKDIR /app
 
-WORKDIR /usr/src
+# Copy the application jar file to the container
+COPY target/demo-0.0.1-SNAPSHOT.jar /app/demo.jar
 
+# Expose port 8080 for the container
+EXPOSE 8080
+
+# Run the application when the container starts
+CMD ["java", "-jar", "demo.jar"]
