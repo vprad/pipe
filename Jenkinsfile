@@ -7,6 +7,7 @@ pipeline {
     DOCKER_IMAGE = "${DOCKER_REPO}:${BUILD_NUMBER}"
     DOCKER_USERNAME = "pradeepvenk99"
     DOCKER_PASSWORD = "Venabi68\\*"
+    DOCKER_CREDENTIAL_ID = "my-docker-credential" // replace with your credential ID
   }
   stages {
     stage("Build") {
@@ -17,7 +18,7 @@ pipeline {
     stage("Dockerize") {
       steps {
         script {
-          docker.withRegistry("https://${DOCKER_REGISTRY}", "docker-hub") {
+          docker.withRegistry("https://${DOCKER_REGISTRY}", DOCKER_CREDENTIAL_ID) {
             def dockerImage = docker.build(DOCKER_IMAGE, ".")
             dockerImage.push()
           }
@@ -28,12 +29,12 @@ pipeline {
   post {
     always {
       script {
-        docker.withRegistry("https://${DOCKER_REGISTRY}", "docker-hub") {
+        docker.withRegistry("https://${DOCKER_REGISTRY}", DOCKER_CREDENTIAL_ID) {
           docker.image(DOCKER_IMAGE).push()
         }
       }
     }
   }
-
 }
+
 
