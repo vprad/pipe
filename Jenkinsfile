@@ -5,8 +5,8 @@ pipeline {
     DOCKER_REGISTRY = "docker.io"
     DOCKER_REPO = "pradeepvenk99/pipeline-demo"
     DOCKER_IMAGE = "${DOCKER_REPO}:${BUILD_NUMBER}"
-    DOCKER_USERNAME = credentials('pradeepvenk99')
-    DOCKER_PASSWORD = credentials('Venabi68*')
+    DOCKER_USERNAME = "pradeepvenk99"
+    DOCKER_PASSWORD = "Venabi68\\*"
   }
   stages {
     stage("Build") {
