@@ -3,6 +3,9 @@ pipeline {
     environment {
         DOCKER_HUB_PASSWORD = "Venabi68*"
     }
+    tools {
+       maven 'M3'
+  }
     stages {
         stage('Build') {
             steps {
