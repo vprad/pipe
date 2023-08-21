@@ -28,7 +28,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://docker.io', 'DOCKER_HUB_PASSWORD') {
                         sh "docker login --username=pradeepvenk99 --password=Venabi68*"
-                        def customImage = docker.build("pradeepvenk99/pipeline-demo:late", ".")
+                        def customImage = docker.build("pradeepvenk99/pipeline-demo:demo", ".")
                         customImage.push()
                     }
                 }
