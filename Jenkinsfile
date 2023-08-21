@@ -26,7 +26,7 @@ pipeline {
         stage('Dockerize') {
             steps {
                 script {
-                    docker.withRegistry('https://docker.io', '5358b1bf-cb27-4a80-abaa-8e8b42b43db8') {
+                    docker.withRegistry('https://docker.io', 'DOCKER_HUB_PASSWORD') {
                         sh "docker login --username=pradeepvenk99 --password=Venabi68*"
                         def customImage = docker.build("pradeepvenk99/pipeline-demo:late", ".")
                         customImage.push()
