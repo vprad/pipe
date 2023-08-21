@@ -4,12 +4,18 @@ pipeline {
         DOCKER_HUB_PASSWORD = "Venabi68*"
     }
     tools {
-       maven 'M3'
-  }
+        // Configure the Maven tool with the name "M3"
+        maven 'M3'
+    }
     stages {
         stage('Build') {
             steps {
-                sh "mvn clean package"
+                script {
+                    // Use the withEnv step to temporarily set the environment for Maven
+                    withEnv(["PATH+MAVEN=${tool name: 'M3', type: 'hudson.tasks.Maven$MavenInstallation'}/bin"]) {
+                        sh "mvn clean package"
+                    }
+                }
             }
         }
         stage('Test') {
@@ -35,7 +41,6 @@ pipeline {
         }
     }
 }
-
 
 
 
