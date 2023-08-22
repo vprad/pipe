@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
 @Controller
-public class StartApplication {
+public class DemoApplication {
 
    @GetMapping("/")
    public String index(final Model model) {
